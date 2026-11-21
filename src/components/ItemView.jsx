@@ -6,19 +6,12 @@ import {
 import StatusLegend from './StatusLegend';
 
 export default function ItemView({
-<<<<<<< HEAD
-=======
-  categoryName,
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   items,
   onOpenAddItem,
   onEditItem,
   onRemoveItem,
-<<<<<<< HEAD
   onChangeQuantity,
   categoryName,
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }) {
   const sortedItems = [...items].sort((a, b) => {
     const alertOrder = Number(hasItemAlert(b)) - Number(hasItemAlert(a));
@@ -81,21 +74,17 @@ export default function ItemView({
                   <p>
                     <strong>Quantity:</strong> {item.quantity}
                   </p>
-<<<<<<< HEAD
                   {item.sku && (
                     <p><strong>SKU:</strong> {item.sku}</p>
                   )}
                   {item.sellingPrice != null && (
                     <p><strong>Price:</strong> ₱{Number(item.sellingPrice).toFixed(2)}</p>
                   )}
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
                   <p>
                     <strong>Expires:</strong> {formatExpiration(item.expirationDate)}
                   </p>
                 </div>
 
-<<<<<<< HEAD
                 <div className="quantity-controls" aria-label={`Quantity controls for ${item.name}`}>
                   <button
                     type="button"
@@ -115,8 +104,6 @@ export default function ItemView({
                   </button>
                 </div>
 
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
                 <div className="item-actions">
                   <button type="button" onClick={() => onEditItem(item)}>
                     Edit

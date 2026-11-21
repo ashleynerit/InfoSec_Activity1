@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 
 async function start() {
   const mongoUri = process.env.MONGODB_URI;
-  if (!mongoUri) throw new Error('MONGODB_URI is not set. Copy .env.example to .env.');
+  if (!mongoUri) throw new Error('mongodb+srv://neritashleynicolegarcia_db_user:ashley12345678@cluster0.nhp1lkz.mongodb.net/');
   await mongoose.connect(mongoUri);
   app.listen(port, () => console.log(`API server listening on http://localhost:${port}`));
 }

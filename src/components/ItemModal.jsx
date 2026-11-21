@@ -6,7 +6,6 @@ import {
 } from '../constants/inventory';
 
 export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) {
-<<<<<<< HEAD
   const [name, setName] = useState(editingItem?.name || '');
   const [quantity, setQuantity] = useState(editingItem ? String(editingItem.quantity) : '');
   const [lowStockThreshold, setLowStockThreshold] = useState(
@@ -25,54 +24,12 @@ export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) 
   const [costPrice, setCostPrice] = useState(editingItem?.costPrice != null ? String(editingItem.costPrice) : '');
   const [sellingPrice, setSellingPrice] = useState(editingItem?.sellingPrice != null ? String(editingItem.sellingPrice) : '');
   const [supplier, setSupplier] = useState(editingItem?.supplier || '');
-=======
-  const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [lowStockThreshold, setLowStockThreshold] = useState('');
-  const [expirationDate, setExpirationDate] = useState('');
-  const [expiringDays, setExpiringDays] = useState('');
-  const [photoData, setPhotoData] = useState('');
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   const nameInputRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) return;
-<<<<<<< HEAD
     setTimeout(() => nameInputRef.current?.focus(), 0);
   }, [isOpen]);
-=======
-
-    if (editingItem) {
-      setName(editingItem.name);
-      setQuantity(String(editingItem.quantity));
-      setLowStockThreshold(
-        String(
-          Number.isInteger(editingItem.lowStockThreshold)
-            ? editingItem.lowStockThreshold
-            : DEFAULT_LOW_STOCK_THRESHOLD
-        )
-      );
-      setExpirationDate(editingItem.expirationDate);
-      setExpiringDays(
-        String(
-          Number.isInteger(editingItem.expiringDays)
-            ? editingItem.expiringDays
-            : DEFAULT_EXPIRING_WINDOW_DAYS
-        )
-      );
-      setPhotoData(editingItem.photoData || '');
-    } else {
-      setName('');
-      setQuantity('');
-      setLowStockThreshold('');
-      setExpirationDate('');
-      setExpiringDays('');
-      setPhotoData('');
-    }
-
-    setTimeout(() => nameInputRef.current?.focus(), 0);
-  }, [isOpen, editingItem]);
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 
   useEffect(() => {
     if (!isOpen) return;
@@ -132,15 +89,12 @@ export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) 
       alert('Expiration alert days must be a whole number greater than or equal to zero.');
       return;
     }
-<<<<<<< HEAD
     const parsedCostPrice = Number(costPrice);
     const parsedSellingPrice = Number(sellingPrice);
     if (costPrice === '' || sellingPrice === '' || !Number.isFinite(parsedCostPrice) || parsedCostPrice < 0 || !Number.isFinite(parsedSellingPrice) || parsedSellingPrice < 0) {
       alert('Enter valid cost and selling prices.');
       return;
     }
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 
     const saved = onSaveItem({
       id: editingItem?.id || Date.now().toString(36) + Math.random().toString(36).slice(2),
@@ -150,13 +104,10 @@ export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) 
       expirationDate,
       expiringDays: parsedExpiringDays,
       photoData,
-<<<<<<< HEAD
       sku: sku.trim(),
       costPrice: parsedCostPrice,
       sellingPrice: parsedSellingPrice,
       supplier: supplier.trim(),
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     });
 
     if (saved) onClose();
@@ -214,7 +165,6 @@ export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) 
             </div>
 
             <div className="item-field">
-<<<<<<< HEAD
               <label htmlFor="itemSku">SKU / Barcode</label>
               <input
                 id="itemSku"
@@ -265,8 +215,6 @@ export default function ItemModal({ isOpen, editingItem, onClose, onSaveItem }) 
             </div>
 
             <div className="item-field">
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
               <label htmlFor="itemLowStockThreshold">Low-stock alert at</label>
               <input
                 id="itemLowStockThreshold"

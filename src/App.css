@@ -42,15 +42,12 @@ body {
     background: #fff;
 }
 
-<<<<<<< HEAD
 h1,
 h2,
 h3 {
     color: var(--navy);
 }
 
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 button,
 input,
 select {
@@ -174,10 +171,7 @@ button:active {
     align-items: center;
     justify-content: center;
     padding: 55px 6vw;
-<<<<<<< HEAD
     background: #fff;
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }
 
 .auth-form {
@@ -186,10 +180,7 @@ button:active {
 
 .auth-form h1 {
     text-align: center;
-<<<<<<< HEAD
     color: var(--navy);
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     font-size: 34px;
     line-height: 1.2;
     margin: 0 0 38px;
@@ -461,19 +452,13 @@ button:active {
     margin: 0;
     font-weight: 900;
     letter-spacing: -1.5px;
-<<<<<<< HEAD
     color: var(--navy);
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }
 
 .greeting p {
     font-size: 20px;
     margin: 2px 0 22px;
-<<<<<<< HEAD
     color: #4c5d70;
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }
 
 .inventory-alerts {
@@ -489,7 +474,6 @@ button:active {
     color: #65768a;
 }
 
-<<<<<<< HEAD
 /* =====================================
    STORE DASHBOARD, POS, AND REPORTS
 ===================================== */
@@ -694,16 +678,11 @@ button:active {
     white-space: nowrap;
 }
 
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 
 /* SECTION TITLES */
 
 .section-title {
-<<<<<<< HEAD
     color: var(--navy);
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     font-size: 26px;
     font-weight: 900;
     letter-spacing: -.6px;
@@ -956,21 +935,14 @@ button:active {
     min-width: 0;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     align-items: flex-start;
-=======
-    align-items: left;
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     gap: 14px;
     padding: 14px;
     border: 1px solid #dce5ef;
     border-radius: 18px;
     background: #fff;
     box-shadow: 0 5px 16px #17284b0d;
-<<<<<<< HEAD
     text-align: left;
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }
 
 .item-photo {
@@ -1006,17 +978,12 @@ button:active {
 
 .item-details h3 {
     margin: 0 0 10px;
-<<<<<<< HEAD
-=======
-    align-items: left;
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     color: var(--navy);
     font-size: 26px;
     font-weight: 900;
     overflow-wrap: anywhere;
 }
 
-<<<<<<< HEAD
 .item-details {
     width: 100%;
     text-align: left;
@@ -1024,20 +991,11 @@ button:active {
 
 .item-details p {
     margin: 5px 0;
-=======
-.item-details p {
-    margin: 5px 0;
-    align-items: left;
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     color: #4c5d70;
     font-size: 14px;
 }
 
 .item-details strong {
-<<<<<<< HEAD
-=======
-  align-items: left;
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     color: var(--navy);
 }
 
@@ -1082,58 +1040,11 @@ button:active {
 .item-actions {
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
     width: 100%;
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     gap: 8px;
     margin-top: auto;
 }
 
-<<<<<<< HEAD
-.quantity-controls {
-    display: grid;
-    grid-template-columns: 52px minmax(42px, 1fr) 52px;
-    align-items: center;
-    width: 100%;
-    min-height: 42px;
-    border: 1px solid #cbd6e2;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #fff;
-}
-
-.quantity-controls button {
-    min-width: 0;
-    height: 40px;
-    border: 0;
-    background: #edf4fb;
-    color: var(--navy);
-    font-size: 15px;
-    font-weight: 900;
-}
-
-.quantity-controls button:first-child {
-    border-right: 1px solid #cbd6e2;
-}
-
-.quantity-controls button:last-child {
-    border-left: 1px solid #cbd6e2;
-}
-
-.quantity-controls button:disabled {
-    cursor: not-allowed;
-    opacity: 0.45;
-}
-
-.quantity-controls strong {
-    color: var(--navy);
-    text-align: center;
-    font-size: 16px;
-}
-
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 .item-actions button {
     min-width: 0;
     flex: 1;
@@ -1148,17 +1059,6 @@ button:active {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-.inventory-alerts .item-actions {
-    flex-wrap: wrap;
-}
-
-.inventory-alerts .item-actions > button {
-    width: 100%;
-}
-
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 .item-actions .remove-item {
     border-color: #efc4c0;
     color: #b42318;
@@ -1247,10 +1147,7 @@ button:active {
 .modal h3 {
     margin: 0 0 18px;
     font-size: 25px;
-<<<<<<< HEAD
     color: var(--navy);
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 }
 
 .category-modal > label {
@@ -1551,7 +1448,6 @@ button:active {
         padding: 16px 5% 60px;
     }
 
-<<<<<<< HEAD
     .dashboard-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1569,8 +1465,6 @@ button:active {
         min-height: 0;
     }
 
-=======
->>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     .greeting h2 {
         font-size: 30px;
     }
