@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import {
   DEFAULT_CATEGORIES,
   getItemAlertStatus,
   hasItemAlert,
+=======
+import { useMemo, useState } from 'react';
+import './App.css';
+import {
+  CATEGORIES_STORAGE_KEY,
+  DEFAULT_CATEGORIES,
+  getItemAlertStatus,
+  hasItemAlert,
+  ITEMS_STORAGE_KEY,
+  USER_STORAGE_KEY,
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 } from './constants/inventory';
 import AuthScreen from './components/AuthScreen';
 import InventoryAlerts from './components/InventoryAlerts';
@@ -11,8 +23,11 @@ import Topbar from './components/Topbar';
 import CategoryModal from './components/CategoryModal';
 import ItemModal from './components/ItemModal';
 import ItemView from './components/ItemView';
+<<<<<<< HEAD
 import { DashboardView, ReportsView, SalesView } from './components/StoreViews';
 import { authApi, storeApi } from './services/api';
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 
 function CategoryStatusStickers({ hasExpiringItems, hasLowStockItems }) {
   if (!hasExpiringItems && !hasLowStockItems) return null;
@@ -37,6 +52,7 @@ function CategoryStatusStickers({ hasExpiringItems, hasLowStockItems }) {
   );
 }
 
+<<<<<<< HEAD
 export default function App() {
   const [screen, setScreen] = useState('login'); // 'signup' | 'login' | 'main'
   const [user, setUser] = useState(null);
@@ -47,11 +63,54 @@ export default function App() {
   const [customCategories, setCustomCategories] = useState([]);
   const [itemsByCategory, setItemsByCategory] = useState({});
   const [sales, setSales] = useState([]);
+=======
+function loadUser() {
+  try {
+    return JSON.parse(localStorage.getItem(USER_STORAGE_KEY) || 'null');
+  } catch {
+    return null;
+  }
+}
+
+function loadCustomCategories() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(CATEGORIES_STORAGE_KEY) || '[]');
+    if (Array.isArray(parsed)) return parsed;
+    throw new Error('Invalid categories format');
+  } catch {
+    alert('Saved categories could not be loaded. Check your browser storage.');
+    return [];
+  }
+}
+
+function loadItems() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(ITEMS_STORAGE_KEY) || '{}');
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+    alert('Saved items have an invalid format and could not be loaded.');
+    return {};
+  } catch {
+    alert('Saved items could not be read. Please check your browser storage.');
+    return {};
+  }
+}
+
+export default function App() {
+  const [screen, setScreen] = useState('signup'); // 'signup' | 'login' | 'main'
+  const [user, setUser] = useState(loadUser);
+  const [activePage, setActivePage] = useState('inventory'); // 'inventory' | 'categories'
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const [customCategories, setCustomCategories] = useState(loadCustomCategories);
+  const [itemsByCategory, setItemsByCategory] = useState(loadItems);
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
 
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
   const [itemModalOpen, setItemModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
+<<<<<<< HEAD
   useEffect(() => {
     let active = true;
 
@@ -86,6 +145,8 @@ export default function App() {
     });
   };
 
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   const allCategories = useMemo(
     () => [
       ...DEFAULT_CATEGORIES,
@@ -137,6 +198,7 @@ export default function App() {
     [allCategories, itemsByCategory]
   );
 
+<<<<<<< HEAD
   const flatItems = useMemo(
     () =>
       allCategories.flatMap((category) =>
@@ -189,6 +251,28 @@ export default function App() {
         setSales([]);
         setScreen('login');
       }
+=======
+  const handleSignupSuccess = (newUser) => {
+    localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
+    setUser(newUser);
+    setScreen('login');
+    alert('Account created successfully! You can now log in.');
+  };
+
+  const handleLoginSuccess = (email, password) => {
+    const storedUser = loadUser();
+    if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
+      return 'Incorrect email or password.';
+    }
+    setUser(storedUser);
+    setScreen('main');
+    return '';
+  };
+
+  const handleLogout = () => {
+    if (window.confirm('Log out of CasaSync?')) {
+      setScreen('login');
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     }
   };
 
@@ -198,6 +282,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+<<<<<<< HEAD
   const handleGoToDashboard = () => {
     setActivePage('dashboard');
     setSelectedCategory('');
@@ -216,6 +301,8 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   const handleGoToCategories = () => {
     setActivePage('categories');
     setSelectedCategory('');
@@ -230,6 +317,7 @@ export default function App() {
 
   const handleAddCategory = (category) => {
     const next = [...customCategories, category];
+<<<<<<< HEAD
     setCustomCategories(next);
     saveStore(next, itemsByCategory, sales).catch((error) => {
       alert(error.message);
@@ -285,6 +373,27 @@ export default function App() {
       return false;
     });
     return true;
+=======
+    try {
+      localStorage.setItem(CATEGORIES_STORAGE_KEY, JSON.stringify(next));
+      setCustomCategories(next);
+      return true;
+    } catch {
+      alert('Your category could not be saved. Check your browser storage and try again.');
+      return false;
+    }
+  };
+
+  const persistItems = (nextItems) => {
+    try {
+      localStorage.setItem(ITEMS_STORAGE_KEY, JSON.stringify(nextItems));
+      setItemsByCategory(nextItems);
+      return true;
+    } catch {
+      alert('Your item changes could not be saved. Check your browser storage and try again.');
+      return false;
+    }
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   };
 
   const handleSaveItem = (itemData) => {
@@ -317,6 +426,7 @@ export default function App() {
     });
   };
 
+<<<<<<< HEAD
   const handleChangeQuantity = (itemId, categoryName, amount) => {
     const currentList = itemsByCategory[categoryName] || [];
     const nextList = currentList.map((item) =>
@@ -331,6 +441,8 @@ export default function App() {
     });
   };
 
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   if (screen === 'signup' || screen === 'login') {
     return (
       <AuthScreen
@@ -343,6 +455,7 @@ export default function App() {
   }
 
   const pageTitle =
+<<<<<<< HEAD
     activePage === 'dashboard'
       ? 'DASHBOARD'
       : activePage === 'sales'
@@ -350,6 +463,9 @@ export default function App() {
       : activePage === 'reports'
       ? 'REPORTS'
       : activePage === 'inventory'
+=======
+    activePage === 'inventory'
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
       ? 'INVENTORY'
       : selectedCategory
       ? selectedCategory.toUpperCase()
@@ -367,6 +483,7 @@ export default function App() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onBack={handleGoToCategories}
+<<<<<<< HEAD
         onGoToDashboard={handleGoToDashboard}
         onGoToInventory={handleGoToInventory}
         onGoToCategories={handleGoToCategories}
@@ -388,10 +505,19 @@ export default function App() {
           <ReportsView items={flatItems} sales={sales} />
         </main>
       ) : activePage === 'inventory' ? (
+=======
+        onGoToInventory={handleGoToInventory}
+        onGoToCategories={handleGoToCategories}
+        onLogout={handleLogout}
+      />
+
+      {activePage === 'inventory' ? (
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
         <main key="inventory" className="main-content page-transition" id="inventoryHome">
           <div className="greeting">
             <h2>{firstName ? `Hello, ${firstName}!` : 'Hello!'}</h2>
             <p>
+<<<<<<< HEAD
               Track stock levels, low-stock alerts, product prices, and supplier information.
             </p>
           </div>
@@ -400,6 +526,13 @@ export default function App() {
             onOpenCategory={handleOpenCategory}
             onChangeQuantity={handleChangeQuantity}
           />
+=======
+              This is your household inventory where you can monitor all your necessities in one
+              place.
+            </p>
+          </div>
+          <InventoryAlerts items={inventoryAlertItems} onOpenCategory={handleOpenCategory} />
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
         </main>
       ) : (
         <main
@@ -479,14 +612,20 @@ export default function App() {
                 setItemModalOpen(true);
               }}
               onRemoveItem={handleRemoveItem}
+<<<<<<< HEAD
               onChangeQuantity={handleChangeQuantity}
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
             />
           )}
         </main>
       )}
 
       <CategoryModal
+<<<<<<< HEAD
         key={categoryModalOpen ? 'category-open' : 'category-closed'}
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
         isOpen={categoryModalOpen}
         existingNames={allCategories.map((c) => c.name.toLowerCase())}
         onClose={() => setCategoryModalOpen(false)}
@@ -494,7 +633,10 @@ export default function App() {
       />
 
       <ItemModal
+<<<<<<< HEAD
         key={`${itemModalOpen ? 'open' : 'closed'}-${editingItem?.id || 'new'}`}
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
         isOpen={itemModalOpen}
         editingItem={editingItem}
         onClose={() => {

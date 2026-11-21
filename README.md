@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Emy's Store is a small-business inventory and point-of-sale system.
 
 ## MERN backend setup
@@ -22,3 +23,6 @@ Emy's Store is a small-business inventory and point-of-sale system.
 
 The API runs on `http://localhost:5000`. Authentication uses an HTTP-only cookie,
 passwords are hashed with bcrypt, and store data is saved in MongoDB.
+=======
+This is CasaSync. A household inventory monitoring system.
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e

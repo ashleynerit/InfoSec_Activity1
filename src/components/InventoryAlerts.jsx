@@ -1,7 +1,11 @@
 import { formatExpiration, getItemAlertStatus } from '../constants/inventory';
 import StatusLegend from './StatusLegend';
 
+<<<<<<< HEAD
 export default function InventoryAlerts({ items, onOpenCategory, onChangeQuantity }) {
+=======
+export default function InventoryAlerts({ items, onOpenCategory }) {
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   return (
     <section className="inventory-alerts" aria-labelledby="inventoryAlertsTitle">
       <h2 className="section-title" id="inventoryAlertsTitle">Items needing attention</h2>
@@ -51,6 +55,7 @@ export default function InventoryAlerts({ items, onOpenCategory, onChangeQuantit
                 </div>
 
                 <div className="item-actions">
+<<<<<<< HEAD
                   <div className="quantity-controls" aria-label={`Quantity controls for ${item.name}`}>
                     <button
                       type="button"
@@ -69,6 +74,8 @@ export default function InventoryAlerts({ items, onOpenCategory, onChangeQuantit
                       +1
                     </button>
                   </div>
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
                   <button type="button" onClick={() => onOpenCategory(item.categoryName)}>
                     View category
                   </button>

@@ -8,11 +8,16 @@ export default function Topbar({
   searchQuery,
   onSearchChange,
   onBack,
+<<<<<<< HEAD
   onGoToDashboard,
   onGoToInventory,
   onGoToCategories,
   onGoToSales,
   onGoToReports,
+=======
+  onGoToInventory,
+  onGoToCategories,
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
   onLogout,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,6 +108,7 @@ export default function Topbar({
             id="navigationMenu"
             aria-label="Main navigation"
           >
+<<<<<<< HEAD
             <button
               className={`menu-item${activePage === 'dashboard' ? ' is-current' : ''}`}
               type="button"
@@ -116,6 +122,10 @@ export default function Topbar({
               onClick={() => handleNavClick(onGoToSales)}
             >
               Point of Sale
+=======
+            <button className="menu-item" type="button" onClick={() => setMenuOpen(false)}>
+              Profile
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
             </button>
             <button
               className={`menu-item${activePage === 'inventory' ? ' is-current' : ''}`}
@@ -133,12 +143,17 @@ export default function Topbar({
             >
               Categories
             </button>
+<<<<<<< HEAD
             <button
               className={`menu-item${activePage === 'reports' ? ' is-current' : ''}`}
               type="button"
               onClick={() => handleNavClick(onGoToReports)}
             >
               Reports
+=======
+            <button className="menu-item" type="button" onClick={() => setMenuOpen(false)}>
+              Archived
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
             </button>
             <button
               className="menu-item logout-item"

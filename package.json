@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+<<<<<<< HEAD
     "dev:server": "nodemon server/index.js",
     "dev:full": "concurrently \"npm run dev:server\" \"npm run dev\"",
     "build": "vite build",
@@ -20,6 +21,13 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^9.0.0",
+=======
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
@@ -27,8 +35,11 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+<<<<<<< HEAD
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.11",
+=======
+>>>>>>> cf394a27a1ed7b8cca694598cf5808440fdbf35e
     "oxlint": "^1.90.0",
     "vite": "^8.3.6"
   }
